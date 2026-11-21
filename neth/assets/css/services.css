@@ -1,0 +1,657 @@
+ 
+        /* ============================================
+           COSMIC THEME VARIABLES
+        ============================================ */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+            --info-color: #0dcaf0;
+            --dark-color: #212529;
+            --cosmic-dark: #1a1a3e;
+            --cosmic-purple: #2d1b4e;
+            --gold-accent: #ffd700;
+            --vasthu-green: #84fab0;
+        }
+        
+        body { 
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           PAGE HEADER WITH COSMIC ANIMATIONS
+        ============================================ */
+        .page-header {
+            background: linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 50%, #1a1a3e 100%);
+            color: white;
+            padding: 100px 0 80px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated stars background */
+        .header-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .header-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: starTwinkle 3s infinite;
+        }
+        
+        .header-star:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .header-star:nth-child(2) { left: 25%; top: 60%; animation-delay: 0.5s; }
+        .header-star:nth-child(3) { left: 40%; top: 30%; animation-delay: 1s; }
+        .header-star:nth-child(4) { left: 55%; top: 70%; animation-delay: 1.5s; }
+        .header-star:nth-child(5) { left: 70%; top: 40%; animation-delay: 2s; }
+        .header-star:nth-child(6) { left: 85%; top: 50%; animation-delay: 2.5s; }
+        .header-star:nth-child(7) { left: 15%; top: 80%; animation-delay: 0.8s; }
+        .header-star:nth-child(8) { left: 90%; top: 15%; animation-delay: 1.8s; }
+        
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        /* Orbiting element */
+        .orbit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            animation: rotate 40s linear infinite;
+        }
+        
+        .orbit-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px var(--gold-accent);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-header h1 {
+            animation: fadeInDown 1s ease-out;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            font-size: 3rem;
+        }
+        
+        .page-header p {
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ============================================
+           CATEGORY HEADERS WITH ANIMATIONS
+        ============================================ */
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInFromLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Animated background pattern */
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(180deg); }
+        }
+        
+        .category-header.vasthu {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            box-shadow: 0 10px 40px rgba(132, 250, 176, 0.3);
+        }
+        
+        /* Floating zodiac/vasthu symbols */
+        .category-symbols {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .floating-symbol {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.1;
+            animation: floatSymbol 15s infinite ease-in-out;
+        }
+        
+        .floating-symbol:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .floating-symbol:nth-child(2) { top: 50%; right: 10%; animation-delay: 5s; }
+        .floating-symbol:nth-child(3) { bottom: 10%; left: 15%; animation-delay: 10s; }
+        
+        @keyframes floatSymbol {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(15px) rotate(-5deg); }
+        }
+        
+        /* ============================================
+           SERVICE CARDS WITH ANIMATIONS
+        ============================================ */
+        .service-card {
+            transition: all 0.4s ease;
+            min-height: 320px;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            position: relative;
+            animation: fadeInScale 0.6s ease-out;
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Card glow effect on hover */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            animation: borderRotate 3s linear infinite;
+            background-size: 400%;
+        }
+        
+        @keyframes borderRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card .card-text {
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Icon animations */
+        .service-card .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Ripple effect */
+        .service-card .icon-wrapper::before,
+        .service-card .icon-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            animation: ripple 2s ease-out infinite;
+        }
+        
+        .service-card .icon-wrapper::after {
+            animation-delay: 1s;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+        
+        .service-card i {
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+        
+        .service-card:hover i {
+            transform: scale(1.2) rotateY(360deg);
+        }
+        
+        /* ============================================
+           PRICE BADGE
+        ============================================ */
+        .price-badge {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            color: #333;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(251, 194, 235, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.5) 50%,
+                transparent 70%
+            );
+            animation: priceShine 2s infinite;
+        }
+        
+        @keyframes priceShine {
+            0% { transform: rotate(0deg) translateX(-100%); }
+            100% { transform: rotate(0deg) translateX(100%); }
+        }
+        
+        /* ============================================
+           BUTTON ENHANCEMENTS
+        ============================================ */
+        .btn-request {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-request::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-request:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-request:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            color: white;
+        }
+        
+        .btn-request i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-request:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* ============================================
+           FEATURE ICONS
+        ============================================ */
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation: iconBounce 2s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid;
+            border-color: inherit;
+            animation: featureRipple 2s infinite;
+        }
+        
+        @keyframes featureRipple {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        
+        .feature-icon.info {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        
+        /* ============================================
+           SECTION HEADINGS
+        ============================================ */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            animation: headingGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes headingGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold-accent), transparent);
+            animation: underlineExpand 2s ease-in-out infinite;
+        }
+        
+        @keyframes underlineExpand {
+            0%, 100% { width: 80px; }
+            50% { width: 100px; }
+        }
+        
+        /* ============================================
+           WHATSAPP CTA SECTION
+        ============================================ */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 100%);
+            border-radius: 25px;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInScale 0.8s ease-out;
+        }
+        
+        .cta-section .cta-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .cta-section .cta-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: starTwinkle 3s infinite;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .whatsapp-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+        }
+        
+        .whatsapp-btn i {
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* ============================================
+           SCROLL REVEAL ANIMATION
+        ============================================ */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           BACK TO TOP BUTTON
+        ============================================ */
+        #backToTop {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        #backToTop:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+        }
+        
+        #backToTop i {
+            animation: arrowBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .orbit-ring {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .service-card {
+                min-height: 250px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .category-header {
+                padding: 2rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* ============================================
+           LOADING SPINNER
+        ============================================ */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ============================================
+           ALERT ENHANCEMENT
+        ============================================ */
+        .alert-custom {
+            border-left: 4px solid;
+            border-radius: 15px;
+            animation: slideInFromLeft 0.5s ease-out;
+        }
+    

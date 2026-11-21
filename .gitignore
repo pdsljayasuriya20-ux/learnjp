@@ -1,0 +1,40 @@
+# Sensitive configuration
+/config.php
+/includes/auth-config.php
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+/error.log
+
+# Private archives
+/neth/nethsitha_jothishya.zip
+
+# Local database backups
+*.sql
+*.sql.gz
+*.dump
+
+# macOS
+.DS_Store
+
+# Dependencies and temporary files
+node_modules/
+.cache/
+
+# macOS metadata
+__MACOSX/
+._*
+
+# Local MAMP configuration
+/php.ini
+
+# Downloaded dependency archives
+/vendor/stripe/stripe-php-21.2.1.zip
+
+# Local ZIP archives
+/neth/admin.zip
+/neth/admin2/PHPMailer.zip
+/neth/assets.zip

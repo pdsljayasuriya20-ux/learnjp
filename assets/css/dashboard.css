@@ -1,0 +1,69 @@
+/* =====================================================
+   assets/css/dashboard.css  -  plan card + progress (loads after auth.css)
+   ===================================================== */
+.auth-wrap.dash-wide { max-width: 720px; }
+.dash-wide .auth-card { margin-bottom: 20px; }
+
+.dash-sec-title { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 800; color: var(--nm-text); margin: 0 0 14px; }
+.dash-sec-title i { color: var(--nm-brand); }
+
+/* ---------- plans ---------- */
+.plan-item { background: var(--nm-bg); box-shadow: var(--nm-raised-sm); border-radius: 18px; padding: 14px 16px; margin-bottom: 12px; }
+.plan-item.expired { box-shadow: var(--nm-inset-sm); opacity: .75; }
+.plan-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.plan-name { font-weight: 800; font-size: .96rem; color: var(--nm-text); }
+.plan-state { font-size: .72rem; font-weight: 800; border-radius: 999px; padding: 4px 12px; background: var(--nm-bg); box-shadow: var(--nm-inset-sm); }
+.plan-state.on  { color: #059669; }
+.plan-state.off { color: #dc2626; }
+.plan-meta { font-size: .78rem; color: var(--nm-muted); margin-top: 6px; line-height: 1.6; }
+.plan-meta b { color: var(--nm-text); }
+
+.plan-none .la-guide { margin-bottom: 12px; }
+.plan-id { display: inline-block; font-weight: 800; color: var(--nm-brand); }
+.plan-contact { display: flex; gap: 10px; flex-wrap: wrap; }
+.plan-contact .la-btn { width: auto; flex: 1 1 200px; text-align: center; text-decoration: none; display: block; font-size: .92rem; padding: 13px 16px; }
+
+/* ---------- progress ---------- */
+.stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 18px; }
+@media (min-width: 560px) { .stat-grid { grid-template-columns: repeat(4, 1fr); } }
+.stat { background: var(--nm-bg); box-shadow: var(--nm-raised-sm); border-radius: 18px; padding: 14px 10px; text-align: center; }
+.stat b { display: block; font-size: 1.45rem; font-weight: 800; color: var(--nm-brand); line-height: 1.2; }
+.stat span { font-size: .72rem; font-weight: 700; color: var(--nm-muted); }
+
+.lv-row { background: var(--nm-bg); box-shadow: var(--nm-inset-sm); border-radius: 18px; padding: 12px 16px; margin-bottom: 10px; }
+.lv-row.empty { opacity: .6; }
+.lv-top { display: flex; align-items: center; gap: 10px; }
+.lv-name { font-weight: 800; font-size: 1rem; color: var(--nm-text); }
+.lv-badge { font-size: .68rem; font-weight: 800; color: #059669; background: var(--nm-bg); box-shadow: var(--nm-raised-sm); border-radius: 999px; padding: 3px 10px; }
+.lv-pct { margin-left: auto; font-size: .8rem; font-weight: 800; color: var(--nm-brand); }
+.bar { height: 10px; border-radius: 999px; background: var(--nm-bg); box-shadow: var(--nm-inset-sm); margin: 10px 0 2px; overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(135deg, var(--nm-brand), var(--nm-brand-2)); }
+.lv-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: .78rem; color: var(--nm-muted); }
+.lv-meta b { color: var(--nm-text); }
+.lv-meta i { color: var(--nm-brand); margin-right: 5px; }
+.dash-empty { text-align: center; font-size: .84rem; color: var(--nm-muted); padding: 6px 0 2px; }
+/* ---------- install-app banner ---------- */
+.app-banner{display:flex;align-items:center;gap:14px;padding:14px 16px;margin-bottom:16px;border-radius:18px;
+  text-decoration:none;color:inherit;background:linear-gradient(135deg,rgba(131,56,236,.14),rgba(58,134,255,.14));
+  border:1px solid rgba(131,56,236,.25);transition:transform .2s}
+.app-banner:hover{transform:translateY(-2px)}
+.app-banner-ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:1.3rem;color:#fff;
+  background:linear-gradient(135deg,#8338ec,#3a86ff);flex:none}
+.app-banner-txt{flex:1;display:flex;flex-direction:column;line-height:1.35}
+.app-banner-txt small{opacity:.7;font-size:.78rem}
+
+/* ---------- activity history ---------- */
+.act-filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px;-webkit-overflow-scrolling:touch}
+.act-chip{white-space:nowrap;padding:7px 12px;border-radius:50px;font-size:.82rem;text-decoration:none;color:inherit;
+  border:1px solid rgba(128,128,128,.25);display:inline-flex;gap:6px;align-items:center}
+.act-chip em{font-style:normal;opacity:.6;font-size:.75rem}
+.act-chip.on{background:linear-gradient(45deg,#ff006e,#8338ec);color:#fff;border-color:transparent}
+.act-list{list-style:none;margin:0;padding:0}
+.act-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(128,128,128,.15)}
+.act-item:last-child{border-bottom:0}
+.act-ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;border:1px solid;flex:none}
+.act-body{flex:1;min-width:0}
+.act-title{font-weight:600;font-size:.92rem;word-break:break-word}
+.act-detail{font-size:.8rem;opacity:.7;margin-top:2px;word-break:break-word}
+.act-lv{font-size:.68rem;padding:1px 7px;border-radius:50px;background:rgba(58,134,255,.15);color:#3a86ff;margin-left:6px}
+.act-time{font-size:.72rem;opacity:.55;white-space:nowrap;flex:none}

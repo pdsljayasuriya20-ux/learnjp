@@ -1,0 +1,511 @@
+
+        /* ============================================
+           COSMIC THEME VARIABLES
+        ============================================ */
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+            --info-color: #0dcaf0;
+            --dark-color: #212529;
+            --cosmic-dark: #1a1a3e;
+            --cosmic-purple: #2d1b4e;
+            --gold-accent: #ffd700;
+        }
+        
+        body { 
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* ============================================
+           HERO SECTION WITH COSMIC ANIMATIONS
+        ============================================ */
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a3e 0%, #2d1b4e 50%, #1a1a3e 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated stars */
+        .hero-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .hero-star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: starTwinkle 3s infinite;
+        }
+        
+        .hero-star:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .hero-star:nth-child(2) { left: 30%; top: 60%; animation-delay: 0.5s; }
+        .hero-star:nth-child(3) { left: 50%; top: 30%; animation-delay: 1s; }
+        .hero-star:nth-child(4) { left: 70%; top: 70%; animation-delay: 1.5s; }
+        .hero-star:nth-child(5) { left: 90%; top: 40%; animation-delay: 2s; }
+        
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        
+        .hero-section .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Service Icon with animations */
+        .service-hero-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: iconFloat 3s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Ripple effect */
+        .service-hero-icon::before,
+        .service-hero-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            animation: ripple 2s ease-out infinite;
+        }
+        
+        .service-hero-icon::after {
+            animation-delay: 1s;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+        
+        /* ============================================
+           CARDS AND SECTIONS
+        ============================================ */
+        .service-card, .details-card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            animation: fadeInScale 0.6s ease-out;
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .service-card:hover, .details-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ============================================
+           FORM CARD WITH COSMIC THEME
+        ============================================ */
+        .form-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            color: white;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Animated background pattern */
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(180deg); }
+        }
+        
+        .form-card > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-card .form-control,
+        .form-card .form-select {
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.95);
+            padding: 14px 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-card .form-control:focus,
+        .form-card .form-select:focus {
+            border-color: #ffc107;
+            box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+            background: white;
+            transform: scale(1.02);
+        }
+        
+        .form-card .form-label {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* ============================================
+           PRICE BADGE
+        ============================================ */
+        .price-badge {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            color: #333;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.75rem;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            animation: pricePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pricePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .price-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.5) 50%,
+                transparent 70%
+            );
+            animation: priceShine 2s infinite;
+        }
+        
+        @keyframes priceShine {
+            0% { transform: rotate(0deg) translateX(-100%); }
+            100% { transform: rotate(0deg) translateX(100%); }
+        }
+        
+        /* ============================================
+           FEATURE ICONS
+        ============================================ */
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation: iconBounce 2s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid;
+            border-color: inherit;
+            animation: featureRipple 2s infinite;
+        }
+        
+        @keyframes featureRipple {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        
+        .feature-icon.success {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+        
+        .feature-icon.warning {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        }
+        
+        /* ============================================
+           WHATSAPP BUTTON
+        ============================================ */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .whatsapp-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+        }
+        
+        .whatsapp-btn i {
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes whatsappPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* ============================================
+           SUBMIT BUTTON
+        ============================================ */
+        .btn-submit {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            border: none;
+            color: #333;
+            font-weight: bold;
+            padding: 16px 32px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-submit:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            color: #000;
+        }
+        
+        /* ============================================
+           INFO BOX
+        ============================================ */
+        .info-box {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            color: #333;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            animation: fadeInScale 0.6s ease-out;
+        }
+        
+        .info-box ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .info-box ul li:last-child {
+            border-bottom: none;
+        }
+        
+        /* ============================================
+           CATEGORY BADGE
+        ============================================ */
+        .category-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* ============================================
+           ALERT ENHANCEMENT
+        ============================================ */
+        .alert-custom {
+            border-left: 5px solid;
+            border-radius: 15px;
+            padding: 2rem;
+            animation: slideInFromLeft 0.5s ease-out;
+        }
+        
+        @keyframes slideInFromLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .success-icon {
+            animation: successPulse 1.5s ease-in-out;
+        }
+        
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+        
+        /* ============================================
+           BACK BUTTON
+        ============================================ */
+        .btn-back {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+        }
+        
+        .btn-back:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 20px rgba(132, 250, 176, 0.4);
+            color: white;
+        }
+        
+        .btn-back i {
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-back:hover i {
+            transform: translateX(-3px);
+        }
+        
+        /* ============================================
+           FADE IN ANIMATION
+        ============================================ */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .service-hero-icon {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .price-badge {
+                font-size: 1.3rem;
+                padding: 1rem 2rem;
+            }
+            
+            .form-card {
+                padding: 2rem;
+            }
+        }
