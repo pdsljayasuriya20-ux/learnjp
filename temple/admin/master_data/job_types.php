@@ -1,2 +1,0 @@
-<?php
-// Pending implementation
